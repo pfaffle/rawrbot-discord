@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node index.ts",
-    "postinstall": "npm run build",
     "prepare": "husky install",
     "register-commands": "ts-node register-commands.ts",
     "start": "node build/index.js",
