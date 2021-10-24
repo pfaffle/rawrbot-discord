@@ -5,6 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
+    "clean": "rm -rf build/*",
     "dev": "ts-node src/index.ts",
     "prepare": "husky install",
     "start": "node build/index.js",
