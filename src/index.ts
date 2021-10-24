@@ -1,4 +1,5 @@
 require("dotenv").config()
+require("newrelic")
 const token = process.env.TOKEN
 const port = process.env.PORT ? parseInt(process.env.PORT) : 8080
 if (!token) {
