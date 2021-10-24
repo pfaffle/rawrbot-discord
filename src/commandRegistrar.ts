@@ -26,7 +26,13 @@ const commands = [
 const rest = new REST({ version: "9" }).setToken(token)
 
 // TODO switch to global commands
-rest
-  .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-  .then(() => console.log("Successfully registered application commands."))
-  .catch(console.error)
+export const commandRegistrar = {
+  register: () => {
+    rest
+      .put(Routes.applicationGuildCommands(clientId, guildId), {
+        body: commands,
+      })
+      .then(() => console.log("Successfully registered application commands."))
+      .catch(console.error)
+  },
+}
