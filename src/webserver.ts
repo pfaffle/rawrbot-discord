@@ -1,8 +1,11 @@
 import express from "express"
 import { Server } from "http"
 import { AddressInfo } from "net"
+import httpLogger from "pino-http"
+import { logger } from "./logger"
 
 const web = express()
+web.use(httpLogger())
 let server: Server
 
 web.get("/", function (req, res) {
@@ -17,7 +20,7 @@ function start(port: number): Promise<AddressInfo> {
   return new Promise<AddressInfo>((resolve, reject) => {
     const address = server.address() as AddressInfo
     server.on("listening", () => {
-      console.log(`HTTP server listening on port ${address.port}`)
+      logger.info(`HTTP server listening on port ${address.port}`)
       resolve(address)
     })
     server.on("error", (err) => {
