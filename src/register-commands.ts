@@ -1,3 +1,4 @@
+require("dotenv").config()
 import { Command } from "./commands/types"
 import fs from "fs"
 import { REST } from "@discordjs/rest"
