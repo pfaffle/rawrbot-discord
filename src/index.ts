@@ -7,9 +7,9 @@ if (!token) {
 }
 import { client } from "./discord"
 import { webserver } from "./webserver"
-import { commandRegistrar } from "./commandRegistrar"
+import { registerCommands } from "./register-commands"
 
-commandRegistrar.register()
+registerCommands()
 webserver.start(port)
 client.login(token)
 // todo check out https://www.npmjs.com/package/discord.js.test
