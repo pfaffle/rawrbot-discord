@@ -9,7 +9,9 @@ import { client } from "./discord"
 import { webserver } from "./webserver"
 import { registerCommands } from "./register-commands"
 
-registerCommands()
-webserver.start(port)
-client.login(token)
-// todo check out https://www.npmjs.com/package/discord.js.test
+async function start() {
+  registerCommands()
+  await webserver.start(port)
+  await client.login(token)
+}
+start()
